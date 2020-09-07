@@ -37,7 +37,10 @@ var Layout = function (_Component) {
     };
 
     _this.state = {
-      name: 'Joe'
+      name: 'Joe',
+      health: 20,
+      level: 1,
+      lowLevelClass: 'danger-red'
     };
     return _this;
   }
@@ -47,9 +50,30 @@ var Layout = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(Header, null),
-        _react2.default.createElement('img', { src: '/img/bape.png' })
+        { id: 'parent' },
+        _react2.default.createElement(
+          'div',
+          { className: 'blue-bg ' + (this.state.health < 55 ? this.state.lowLevelClass : '') + ' ' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Name: ',
+            this.state.name
+          ),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Health: ',
+            this.state.health
+          ),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'level: ',
+            this.state.level
+          ),
+          _react2.default.createElement('img', { src: '/img/bape.png' })
+        )
       );
     }
   }]);
